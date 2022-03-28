@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ResultTest {
 
+    //https://github.com/Dave4President/prog2-ss21-exercise1
+
     @Test
     void isStudentCountValid() {
         boolean actual = Result.isStudentCountValid(66);
