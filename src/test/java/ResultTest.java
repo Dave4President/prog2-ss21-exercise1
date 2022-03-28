@@ -6,62 +6,68 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ResultTest {
-    private Result2 result;
-
-    // repository link: https://github.com/Dave4President/prog2-ss21-exercise1
 
     @Test
-    void isStudentCountValid1() {
-        boolean actual = result.studentCountValid(66);
+    void isStudentCountValid() {
+        boolean actual = Result.isStudentCountValid(66);
         boolean expected = false;
         assertEquals(actual, expected);
     }
 
     @Test
-    void isStudentCountValid2() {
-        boolean actual = result.studentCountValid(50);
+    void isStudenCounValid2() {
+        boolean actual = Result.isStudentCountValid(45);
         boolean expected = true;
         assertEquals(actual, expected);
     }
 
     @Test
-    void isGradeValid1(){
-        boolean actual = result.gradeValid(120);
+    void isGradeValid() {
+        boolean actual = Result.isGradeValid(0);
+        boolean expected = true;
+        assertEquals(actual, expected);
+
+    }
+
+    @Test
+    void isGradeValid2() {
+        boolean actual = Result.isGradeValid(101);
         boolean expected = false;
         assertEquals(actual, expected);
     }
 
     @Test
-    void isGradeValid2(){
-        boolean actual = result.gradeValid(38);
+    void isGradeToBeRounded() {
+        boolean actual = Result.gradeToBeRounded(37);
+        boolean expected = false;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void isGradeToBeRounded2() {
+        boolean actual = Result.gradeToBeRounded(76);
+        boolean expected = false;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void isGradeToBeRounded3() {
+        boolean actual = Result.gradeToBeRounded(74);
         boolean expected = true;
         assertEquals(actual, expected);
     }
 
     @Test
-    void isGradeToBeRounded(){
-        boolean actual = result.gradeToBeRounded(38);
-        boolean expected = true;
-        assertEquals(actual, expected);
-    }
-    @Test
-    void isGradeToBeRounded1(){
-        boolean actual = result.gradeToBeRounded(1);
-        boolean expected = false;
-        assertEquals(actual, expected);
-    }
-    @Test
-    void isGradeToBeRounded2(){
-        boolean actual = result.gradeToBeRounded(80);
-        boolean expected = false;
-        assertEquals(actual, expected);
-    }
-
-    @Test
-    void gradingStudentsTest() {
-        List<Integer> actual = Arrays.asList(4, 73, 67, 38, 33);
+    void gradingStudents() {
         List<Integer> expected = Arrays.asList(75, 67, 40, 33);
-
+        List<Integer> grades = Arrays.asList(4, 73, 67, 38, 33);
+        List<Integer> actual = Result.gradingStudents(grades);
+        assertEquals(actual, expected);
     }
+
+
+
+
+
 
 }
